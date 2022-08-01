@@ -9,6 +9,7 @@ import br.com.dio.app.repositories.R
 import br.com.dio.app.repositories.core.createDialog
 import br.com.dio.app.repositories.core.createProgressDialog
 import br.com.dio.app.repositories.core.hideSoftKeyboard
+import br.com.dio.app.repositories.core.showSoftKeyboard
 import br.com.dio.app.repositories.databinding.ActivityMainBinding
 import br.com.dio.app.repositories.presentation.MainViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -52,6 +53,7 @@ class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_main, menu)
+        binding.root.showSoftKeyboard()
         val searchView = menu.findItem(R.id.action_search).actionView as SearchView
         searchView.setOnQueryTextListener(this)
         return super.onCreateOptionsMenu(menu)
@@ -67,6 +69,8 @@ class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
         Log.d("MainActivity", "onQueryTextChange: $newText")
         return false
     }
+
+
 
 
 }

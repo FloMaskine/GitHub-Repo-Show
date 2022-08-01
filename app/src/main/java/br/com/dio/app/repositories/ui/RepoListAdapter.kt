@@ -1,5 +1,7 @@
 package br.com.dio.app.repositories.ui
 
+import android.content.Intent
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -11,6 +13,7 @@ import com.bumptech.glide.Glide
 
 class RepoListAdapter : ListAdapter<Repo, RepoListAdapter.ViewHolder>(DiffCallback()) {
 
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val binding = ItemRepoBinding.inflate(inflater, parent, false)
@@ -19,6 +22,8 @@ class RepoListAdapter : ListAdapter<Repo, RepoListAdapter.ViewHolder>(DiffCallba
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(getItem(position))
+
+
     }
 
 
@@ -33,7 +38,20 @@ class RepoListAdapter : ListAdapter<Repo, RepoListAdapter.ViewHolder>(DiffCallba
             binding.chipStars.text = item.stargazersCount.toString()
 
             Glide.with(binding.root.context)
-                .load(item.owner.avatarURL).into(binding.ivOwner)
+                .load(item.owner.avatarURL).circleCrop().into(binding.ivOwner)
+
+
+            binding.ivOwner.setOnClickListener {
+                val intent = Intent(Intent.ACTION_VIEW)
+                intent.data = Uri.parse(item.owner.htmlURL)
+                binding.root.context.startActivity(intent)
+            }
+            binding.tvRepoName.setOnClickListener {
+                val intent = Intent(Intent.ACTION_VIEW)
+                intent.data = Uri.parse(item.htmlURL)
+                binding.root.context.startActivity(intent)
+            }
+
         }
     }
 }

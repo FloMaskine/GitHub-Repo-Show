@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">GitHUB Repo-Show</string>
+    <string name="app_name" translatable="false">GitHUB Repo-Show</string>
     <string name="action_search">Search</string>
     <string name="repo_name_label">Repository Name</string>
     <string name="repo_description_label">Repository\'s Description</string>

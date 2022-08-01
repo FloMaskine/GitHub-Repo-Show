@@ -21,6 +21,11 @@ fun View.hideSoftKeyboard() {
     imm.hideSoftInputFromWindow(windowToken, 0)
 }
 
+fun View.showSoftKeyboard(){
+    val imm = context.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+    imm.showSoftInput(this, 0)
+}
+
 fun Context.createDialog(block: MaterialAlertDialogBuilder.() -> Unit = {}): AlertDialog {
     val builder = MaterialAlertDialogBuilder(this)
     builder.setPositiveButton(android.R.string.ok, null)
@@ -38,4 +43,6 @@ fun Context.createProgressDialog(): AlertDialog {
         setPositiveButton(null, null)
         setCancelable(false)
     }
+
 }
+

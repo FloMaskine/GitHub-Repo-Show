@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">GitHUB Repo-Show</string>
+    <string name="action_search">Pesquisar</string>
+    <string name="repo_name_label">Nome do Repositório</string>
+    <string name="repo_description_label">Descrição do Repositório</string>
+    <string name="repo_language_label">Linguagem</string>
+    <string name="error_search_repos">Ocorreu um erro pesquisando os repositórios. Tente novamente.</string>
+</resources>
